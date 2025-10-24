@@ -29,3 +29,29 @@
     "nodemon": "^3.0.1"
   }
 }
+{
+  "name": "identity-atlas-scraping-api",
+  "version": "1.0.0",
+  "description": "Universal scraping API for Identity Atlas",
+  "main": "src/index.js",
+  "engines": {
+    "node": "18.x"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  ...rest of file
+}
+```
+
+---
+
+## 🚀 **QUICK FIX - LET'S TRY THIS:**
+
+1. **Go to your GitHub repo**
+2. **Click "Add file" → "Create new file"**
+3. **Filename:** `Procfile`
+4. **Content:**
+```
+web: node src/index.js
