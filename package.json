@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Universal scraping API for Identity Atlas",
   "main": "src/index.js",
+  "engines": {
+    "node": "18.x"
+  },
   "scripts": {
     "start": "node src/index.js",
     "dev": "nodemon src/index.js"
@@ -29,29 +32,18 @@
     "nodemon": "^3.0.1"
   }
 }
-{
-  "name": "identity-atlas-scraping-api",
-  "version": "1.0.0",
-  "description": "Universal scraping API for Identity Atlas",
-  "main": "src/index.js",
-  "engines": {
-    "node": "18.x"
-  },
-  "scripts": {
-    "start": "node src/index.js",
-    "dev": "nodemon src/index.js"
-  },
-  ...rest of file
-}
 ```
+
+**Click "Commit changes"**
 
 ---
 
-## 🚀 **QUICK FIX - LET'S TRY THIS:**
+## ✅ **ALSO ADD THE PROCFILE:**
 
-1. **Go to your GitHub repo**
-2. **Click "Add file" → "Create new file"**
-3. **Filename:** `Procfile`
-4. **Content:**
+While you're there:
+
+1. **Click "Add file" → "Create new file"**
+2. **Filename:** `Procfile` (capital P, no extension)
+3. **Content:**
 ```
 web: node src/index.js
