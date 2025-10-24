@@ -18,9 +18,9 @@
   ],
   "author": "Your Name",
   "license": "MIT",
-  "dependencies": {
+"dependencies": {
     "express": "^4.18.2",
-    "puppeteer": "^21.0.0",
+    "puppeteer-core": "^21.0.0",
     "puppeteer-extra": "^3.3.6",
     "puppeteer-extra-plugin-stealth": "^2.11.2",
     "dotenv": "^16.3.1",
@@ -32,18 +32,3 @@
     "nodemon": "^3.0.1"
   }
 }
-```
-
-**Click "Commit changes"**
-
----
-
-## ✅ **ALSO ADD THE PROCFILE:**
-
-While you're there:
-
-1. **Click "Add file" → "Create new file"**
-2. **Filename:** `Procfile` (capital P, no extension)
-3. **Content:**
-```
-web: node src/index.js
