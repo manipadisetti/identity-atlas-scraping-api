@@ -3,8 +3,8 @@
 
 require('dotenv').config();
 const express = require('express');
-const { authMiddleware } = require('./middleware/auth');
-const { rateLimitMiddleware } = require('./middleware/rateLimit');
+const { authenticate } = require('./middleware/auth.js');
+const { rateLimiter } = require('./middleware/rateLimit.js');
 const { logRequest } = require('./utils/logger');
 
 // Handler imports
