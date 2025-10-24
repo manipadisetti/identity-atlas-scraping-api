@@ -41,7 +41,7 @@ app.post('/scrape/linkedin', strictRateLimiter, async (req, res) => {
     if (!profileUrl) {
       return res.status(400).json({ success: false, error: 'profileUrl is required' });
     }
-    const { scrapeLinkedIn } = require('./handlers/professional/linkedin.js');
+    const { scrapeLinkedIn } = require('./handlers/professional/linkedin');
     const data = await scrapeLinkedIn(profileUrl);
     res.json({ success: true, source: 'linkedin', data });
   } catch (error) {
@@ -56,7 +56,7 @@ app.post('/scrape/github', async (req, res) => {
     if (!username) {
       return res.status(400).json({ success: false, error: 'username is required' });
     }
-    const { scrapeGitHub } = require('./handlers/professional/github.js');
+    const { scrapeGitHub } = require('./handlers/professional/github');
     const data = await scrapeGitHub(username);
     res.json({ success: true, source: 'github', data });
   } catch (error) {
@@ -71,7 +71,7 @@ app.post('/scrape/stackoverflow', async (req, res) => {
     if (!userId) {
       return res.status(400).json({ success: false, error: 'userId is required' });
     }
-    const { scrapeStackOverflow } = require('./handlers/professional/stackoverflow.js');
+    const { scrapeStackOverflow } = require('./handlers/professional/stackoverflow');
     const data = await scrapeStackOverflow(userId);
     res.json({ success: true, source: 'stackoverflow', data });
   } catch (error) {
@@ -86,7 +86,7 @@ app.post('/scrape/medium', async (req, res) => {
     if (!username) {
       return res.status(400).json({ success: false, error: 'username is required' });
     }
-    const { scrapeMedium } = require('./handlers/professional/medium.js');
+    const { scrapeMedium } = require('./handlers/professional/medium');
     const data = await scrapeMedium(username);
     res.json({ success: true, source: 'medium', data });
   } catch (error) {
@@ -105,7 +105,7 @@ app.post('/scrape/twitter', async (req, res) => {
     if (!username) {
       return res.status(400).json({ success: false, error: 'username is required' });
     }
-    const { scrapeTwitter } = require('./handlers/social/twitter.js');
+    const { scrapeTwitter } = require('./handlers/social/twitter');
     const data = await scrapeTwitter(username);
     res.json({ success: true, source: 'twitter', data });
   } catch (error) {
@@ -120,7 +120,7 @@ app.post('/scrape/reddit', async (req, res) => {
     if (!username) {
       return res.status(400).json({ success: false, error: 'username is required' });
     }
-    const { scrapeReddit } = require('./handlers/social/reddit.js');
+    const { scrapeReddit } = require('./handlers/social/reddit');
     const data = await scrapeReddit(username);
     res.json({ success: true, source: 'reddit', data });
   } catch (error) {
@@ -139,7 +139,7 @@ app.post('/scrape/youtube', async (req, res) => {
     if (!query) {
       return res.status(400).json({ success: false, error: 'query is required' });
     }
-    const { scrapeYouTube } = require('./handlers/content/youtube.js');
+    const { scrapeYouTube } = require('./handlers/content/youtube');
     const data = await scrapeYouTube(query);
     res.json({ success: true, source: 'youtube', data });
   } catch (error) {
@@ -158,7 +158,7 @@ app.post('/scrape/news/google', async (req, res) => {
     if (!query) {
       return res.status(400).json({ success: false, error: 'query is required' });
     }
-    const { scrapeGoogleNews } = require('./handlers/news/google-news.js');
+    const { scrapeGoogleNews } = require('./handlers/news/google-news');
     const data = await scrapeGoogleNews(query);
     res.json({ success: true, source: 'google-news', data });
   } catch (error) {
@@ -177,7 +177,7 @@ app.post('/scrape/business/abn', async (req, res) => {
     if (!abnOrName) {
       return res.status(400).json({ success: false, error: 'abnOrName is required' });
     }
-    const { scrapeABN } = require('./handlers/business/abn-lookup.js');
+    const { scrapeABN } = require('./handlers/business/abn-lookup');
     const data = await scrapeABN(abnOrName);
     res.json({ success: true, source: 'abn-lookup', data });
   } catch (error) {
@@ -196,7 +196,7 @@ app.post('/scrape/academic/scholar', async (req, res) => {
     if (!query) {
       return res.status(400).json({ success: false, error: 'query is required' });
     }
-    const { scrapeGoogleScholar } = require('./handlers/academic/google-scholar.js');
+    const { scrapeGoogleScholar } = require('./handlers/academic/google-scholar');
     const data = await scrapeGoogleScholar(query);
     res.json({ success: true, source: 'google-scholar', data });
   } catch (error) {
@@ -215,7 +215,7 @@ app.post('/scrape/images/google', async (req, res) => {
     if (!query) {
       return res.status(400).json({ success: false, error: 'query is required' });
     }
-    const { scrapeGoogleImages } = require('./handlers/images/google-images.js');
+    const { scrapeGoogleImages } = require('./handlers/images/google-images');
     const data = await scrapeGoogleImages(query);
     res.json({ success: true, source: 'google-images', data });
   } catch (error) {
@@ -257,7 +257,7 @@ app.post('/scrape/comprehensive', strictRateLimiter, async (req, res) => {
 
     // GitHub
     if (sourcesToScrape.includes('github')) {
-      const { scrapeGitHub } = require('./handlers/professional/github.js');
+      const { scrapeGitHub } = require('./handlers/professional/github');
       scrapingPromises.push(
         scrapeGitHub(identifier)
           .then(data => {
@@ -273,7 +273,7 @@ app.post('/scrape/comprehensive', strictRateLimiter, async (req, res) => {
 
     // Twitter
     if (sourcesToScrape.includes('twitter')) {
-      const { scrapeTwitter } = require('./handlers/social/twitter.js');
+      const { scrapeTwitter } = require('./handlers/social/twitter');
       scrapingPromises.push(
         scrapeTwitter(identifier)
           .then(data => {
@@ -289,7 +289,7 @@ app.post('/scrape/comprehensive', strictRateLimiter, async (req, res) => {
 
     // Reddit
     if (sourcesToScrape.includes('reddit')) {
-      const { scrapeReddit } = require('./handlers/social/reddit.js');
+      const { scrapeReddit } = require('./handlers/social/reddit');
       scrapingPromises.push(
         scrapeReddit(identifier)
           .then(data => {
@@ -305,7 +305,7 @@ app.post('/scrape/comprehensive', strictRateLimiter, async (req, res) => {
 
     // YouTube
     if (sourcesToScrape.includes('youtube')) {
-      const { scrapeYouTube } = require('./handlers/content/youtube.js');
+      const { scrapeYouTube } = require('./handlers/content/youtube');
       scrapingPromises.push(
         scrapeYouTube(identifier)
           .then(data => {
@@ -321,7 +321,7 @@ app.post('/scrape/comprehensive', strictRateLimiter, async (req, res) => {
 
     // Google News
     if (sourcesToScrape.includes('google-news')) {
-      const { scrapeGoogleNews } = require('./handlers/news/google-news.js');
+      const { scrapeGoogleNews } = require('./handlers/news/google-news');
       scrapingPromises.push(
         scrapeGoogleNews(identifier)
           .then(data => {
