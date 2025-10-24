@@ -3,9 +3,8 @@
 
 require('dotenv').config();
 const express = require('express');
-const { authMiddleware, getUsageStats } = require('./middleware/auth');
-const { rateLimiter, strictRateLimiter } = require('./middleware/rateLimit');
-
+const { authMiddleware, getUsageStats } = require('./middleware/auth.js');
+const { rateLimiter, strictRateLimiter } = require('./middleware/rateLimit.js');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
